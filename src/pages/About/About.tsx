@@ -1,5 +1,7 @@
+import styles from './About.modules.scss'
+
 const About = () => {
-	return <div>About page</div>
+	return <div className={styles.content}>About page</div>
 }
 
 export default About
