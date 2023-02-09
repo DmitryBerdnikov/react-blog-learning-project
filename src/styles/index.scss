@@ -1,5 +1,11 @@
-@use 'normalize.scss';
+@use 'normalize';
+@use 'variables';
 
 .app {
-    background-color: red;
+	font-family: var(--font-family-text);
+	font-size: var(--font-size-normal);
+	color: var(--color-text-primary);
+	line-height: 1.5;
+	background-color: var(--color-background-primary);
+	min-height: 100vh;
 }

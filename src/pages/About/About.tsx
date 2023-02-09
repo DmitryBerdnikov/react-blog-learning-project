@@ -1,4 +1,4 @@
-import styles from './About.modules.scss'
+import styles from './About.module.scss'
 
 const About = () => {
 	return <div className={styles.content}>About page</div>
