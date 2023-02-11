@@ -1,14 +1,20 @@
 import { Suspense, lazy } from 'react'
 import { Link, Route, Routes } from 'react-router-dom'
-import { useTheme } from './theme/useTheme'
+import { useTheme } from '@app/providers/ThemeProvider'
 import './styles/index.scss'
 
-const About = lazy(() => import('./pages/About/About'))
-const Main = lazy(() => import('./pages/Main/Main'))
+const About = lazy(() => import('@pages/About'))
+const Main = lazy(() => import('@pages/Main'))
 
 const ThemeSwitcher = () => {
-	const { theme, isSystemTheme, setDarkTheme, setLightTheme, setBrightTheme, setSystemTheme } =
-		useTheme()
+	const {
+		theme,
+		isSystemTheme,
+		setDarkTheme,
+		setLightTheme,
+		setBrightTheme,
+		setSystemTheme,
+	} = useTheme()
 
 	return (
 		<div>

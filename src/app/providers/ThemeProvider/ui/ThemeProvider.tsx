@@ -1,5 +1,5 @@
 import { FC, useEffect, useState, useRef } from 'react'
-import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from './ThemeContext'
+import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from '../lib/ThemeContext'
 
 /*
 	If user visited site for the first time, theme will be set as system theme
