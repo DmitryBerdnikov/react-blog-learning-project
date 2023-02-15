@@ -1,7 +1,7 @@
 import { Suspense } from 'react'
-import { Link } from 'react-router-dom'
 import { useTheme } from '@app/providers/ThemeProvider'
 import { Routing } from '@pages/index'
+import { Header } from '@widgets/Header'
 import './styles/index.scss'
 
 const ThemeSwitcher = () => {
@@ -36,9 +36,8 @@ const ThemeSwitcher = () => {
 const App = () => {
 	return (
 		<div className="app">
+			<Header />
 			<ThemeSwitcher />
-			<Link to="/">Home</Link>
-			<Link to="/about">AboutPage</Link>
 			<Suspense fallback={<div>Loading...</div>}>
 				<Routing />
 			</Suspense>
