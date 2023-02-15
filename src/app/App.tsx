@@ -1,10 +1,8 @@
-import { Suspense, lazy } from 'react'
-import { Link, Route, Routes } from 'react-router-dom'
+import { Suspense } from 'react'
+import { Link } from 'react-router-dom'
 import { useTheme } from '@app/providers/ThemeProvider'
+import { Routing } from '@pages/index'
 import './styles/index.scss'
-
-const About = lazy(() => import('@pages/About'))
-const Main = lazy(() => import('@pages/Main'))
 
 const ThemeSwitcher = () => {
 	const {
@@ -40,12 +38,9 @@ const App = () => {
 		<div className="app">
 			<ThemeSwitcher />
 			<Link to="/">Home</Link>
-			<Link to="/about">About</Link>
+			<Link to="/about">AboutPage</Link>
 			<Suspense fallback={<div>Loading...</div>}>
-				<Routes>
-					<Route path="/about" element={<About />} />
-					<Route path="/" element={<Main />} />
-				</Routes>
+				<Routing />
 			</Suspense>
 		</div>
 	)
