@@ -11,23 +11,31 @@ export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
 				loader: 'css-loader',
 				options: {
 					modules: {
-						auto: (resourcePath: string) => resourcePath.includes(".module."),
-						localIdentName: isDev ? '[path][name]__[local]' : '[hash:base64:8]'
-					}
-				}
+						auto: (resourcePath: string) => resourcePath.includes('.module.'),
+						localIdentName: isDev ? '[path][name]__[local]' : '[hash:base64:8]',
+					},
+				},
 			},
 			'sass-loader',
 		],
 	}
 
-    const typescriptLoader = {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/,
-    }
+	const typescriptLoader = {
+		test: /\.tsx?$/,
+		use: 'ts-loader',
+		exclude: /node_modules/,
+	}
 
-	return [
-        typescriptLoader,
-        cssLoader,
-    ]
+	const assetLoader = {
+		test: /\.(png|jpg|gif|woff2)$/i,
+		type: 'asset/resource',
+	}
+
+	const svgLoader = {
+		test: /\.svg$/i,
+		issuer: /\.[jt]sx?$/,
+		use: ['@svgr/webpack'],
+	}
+
+	return [typescriptLoader, cssLoader, assetLoader, svgLoader]
 }
